@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import Hello from './Hello';
 import './style.css';
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      name: 'React'
-    };
+//Logowanie
+function logowanie() {
+  var userName = document.getElementById("username").value;
+  var passWord = document.getElementById("password").value;
+
+  //validate input
+  if (userName === "" && passWord === "") {
+    alert("Please enter your Username and Password");
+    return;
   }
 
-  render() {
-    return (
-      <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
-      </div>
-    );
+if (passWord === "" && userName !== "") {
+    alert("Please enter your Password: no value");
+    return;
   }
+
+if (userName === "" && passWord !== "") {
+    alert("Please enter your Username: no value");
+    return;
+  }
+
+   var total = "trying";
+
+  document.getElementById("status").style.display = "block";
+  document.getElementById("wynik").innerHTML = total;
+
 }
 
-render(<App />, document.getElementById('root'));
+//click to call function
+document.getElementById("login").onclick = function() {
+  logowanie();
+
+};
